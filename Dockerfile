@@ -1,8 +1,8 @@
 FROM centos:latest
 MAINTAINER oscar
-RUN yum update && yum clean all
+RUN yum -y update && yum -y clean all
 RUN yum install httpd -y 
 COPY index.html /var/www/html/
-CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+CMD ["-D","FOREGROUND"]
 EXPOSE 80 
 
