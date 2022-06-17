@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos
 MAINTAINER oscar
 RUN yum -y update && yum -y clean all
 RUN yum install httpd -y 
