@@ -12,11 +12,11 @@ pipeline {
          }
        }
      }
-      stage ('Uploading to Docker') {
+      stage ('Pushing to Docker') {
          steps {
           script {
             docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
+            sh 'docker push okip/devops-ci' 
            }
          }
        }
