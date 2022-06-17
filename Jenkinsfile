@@ -5,10 +5,19 @@ pipeline {
      registryCredential = 'docker_user'
    }
    stages {
-      stage('Deploy'){
+      stage('Building Image') {
         steps {
           script {
             docker.build registry + ":$BUILD_NUMBER"
+         }
+       }
+     }
+      stage ('Uploading to Docker') {
+         steps {
+          script {
+            docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+           }
          }
        }
      }
