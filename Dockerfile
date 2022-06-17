@@ -1,8 +1,5 @@
-FROM centos:latest
+FROM httpd:2.4
 MAINTAINER oscar
-RUN yum update && yum clean all
-RUN yum install httpd -y 
-COPY index.html /var/www/html/
-CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
-EXPOSE 80 
+COPY ./website /usr/local/apache2/htdocs/
+
 
