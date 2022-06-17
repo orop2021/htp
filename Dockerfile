@@ -1,4 +1,4 @@
-FROM centos7.9.2009
+FROM httpd
 MAINTAINER oscar
 RUN yum -y update 
 RUN yum install httpd -y 
