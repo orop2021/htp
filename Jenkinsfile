@@ -16,14 +16,8 @@ pipeline {
          steps {
           script {
             docker.withRegistry( '', registryCredential ) {
+             sh 'docker push okip/devops-ci' + ":$BUILD_NUMBER"
            }
-         }
-       }
-     }
-      stage ('Deploy to Docker') {
-        steps {
-          script {
-            sh 'docker push okip/devops-ci' + ":$BUILD_NUMBER"
          }
        }
      }
