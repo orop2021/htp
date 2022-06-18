@@ -21,10 +21,5 @@ pipeline {
          }
        }
      }
-      stage ('Deploy to Docker') {
-        steps {
-           sh 'docker push okip/devops-ci' + ":$BUILD_NUMBER"
-        }
-      }
    }
 }
